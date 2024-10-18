@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.nameNginx }}
+  name: {{ .Values.nameHttpd }}
   labels:
-    app: {{ .Values.nameNginx }}
+    app: {{ .Values.nameHttpd }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Values.nameNginx }}
+      app: {{ .Values.nameHttpd }}
   template:
     metadata:
       labels:
-        app: {{ .Values.nameNginx }}
+        app: {{ .Values.nameHttpd }}
     spec:
       containers:
-        - name: nginx
-          image: "{{ .Values.imageNginx.repository }}:{{ .Values.imageNginx.tag }}"
+        - name: httpd
+          image: "{{ .Values.imageHttpd.repository }}:{{ .Values.imageHttpd.tag }}"
           ports:
             - containerPort: 80
           resources:

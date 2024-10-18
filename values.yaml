@@ -1,9 +1,17 @@
 replicaCount: 1
 
-image:
+nameNginx: nginx
+nameHttpd: httpd
+
+imageNginx:
   repository: nginx
   pullPolicy: IfNotPresent
   tag: "latest"
+imageHttpd:
+  repository: httpd
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
 
 service:
   type: ClusterIP
